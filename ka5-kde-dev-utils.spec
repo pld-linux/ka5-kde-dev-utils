@@ -31,6 +31,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Small utilities for developers using KDE/Qt libs/frameworks.
 
+%description -l pl.UTF-8
+Małe programy użytkowe dla programistów używających bibliotek
+KDE/Qt.
+
 %prep
 %setup -q -n %{kaname}-%{version}
 
