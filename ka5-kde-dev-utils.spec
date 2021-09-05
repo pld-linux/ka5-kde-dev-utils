@@ -1,15 +1,15 @@
-%define		kdeappsver	21.08.0
+%define		kdeappsver	21.08.1
 %define		kframever	5.56.0
 %define		qtver		5.9.0
 %define		kaname		kde-dev-utils
 Summary:	Kde dev utils
 Name:		ka5-%{kaname}
-Version:	21.08.0
+Version:	21.08.1
 Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
 Source0:	http://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	a6c72a4a817e11b55835b42a8b96b64d
+# Source0-md5:	8584fa829a3e8063976ba0d9e2a4a09e
 URL:		http://www.kde.org/
 BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 2.8.12
