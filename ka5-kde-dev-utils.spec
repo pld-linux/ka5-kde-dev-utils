@@ -1,30 +1,30 @@
 #
 # Conditional build:
 %bcond_with	tests		# build with tests
-%define		kdeappsver	24.01.95
+%define		kdeappsver	23.08.4
 %define		kframever	5.94.0
 %define		qtver		5.15.2
 %define		kaname		kde-dev-utils
 Summary:	Kde dev utils
 Name:		ka5-%{kaname}
-Version:	24.01.95
-Release:	0.1
+Version:	23.08.4
+Release:	1
 License:	GPL v2+/LGPL v2.1+
 Group:		X11/Libraries
-Source0:	https://download.kde.org/unstable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
-# Source0-md5:	b0955128373e7adf3ee20d3995978229
+Source0:	https://download.kde.org/stable/release-service/%{kdeappsver}/src/%{kaname}-%{version}.tar.xz
+# Source0-md5:	fba65d1b3121e21dbcebb01909bcad1e
 URL:		http://www.kde.org/
-BuildRequires:	Qt6Core-devel >= %{qtver}
+BuildRequires:	Qt5Core-devel >= %{qtver}
 BuildRequires:	cmake >= 3.20
 BuildRequires:	gettext-devel
-BuildRequires:	kf6-extra-cmake-modules >= %{kframever}
-BuildRequires:	kf6-kcoreaddons-devel >= %{kframever}
-BuildRequires:	kf6-ki18n-devel >= %{kframever}
-BuildRequires:	kf6-kio-devel >= %{kframever}
-BuildRequires:	kf6-kparts-devel >= %{kframever}
-BuildRequires:	kf6-kwidgetsaddons-devel >= %{kframever}
+BuildRequires:	kf5-extra-cmake-modules >= %{kframever}
+BuildRequires:	kf5-kcoreaddons-devel >= %{kframever}
+BuildRequires:	kf5-ki18n-devel >= %{kframever}
+BuildRequires:	kf5-kio-devel >= %{kframever}
+BuildRequires:	kf5-kparts-devel >= %{kframever}
+BuildRequires:	kf5-kwidgetsaddons-devel >= %{kframever}
 BuildRequires:	ninja
-BuildRequires:	qt6-build >= %{qtver}
+BuildRequires:	qt5-build >= %{qtver}
 BuildRequires:	rpmbuild(macros) >= 1.164
 BuildRequires:	shared-mime-info
 BuildRequires:	tar >= 1:1.22
@@ -35,7 +35,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Small utilities for developers using KDE/Qt libs/frameworks.
 
 %description -l pl.UTF-8
-Małe programy użytkowe dla programistów używających bibliotek KDE/Qt.
+Małe programy użytkowe dla programistów używających bibliotek
+KDE/Qt.
 
 %prep
 %setup -q -n %{kaname}-%{version}
@@ -67,8 +68,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/kpartloader
 %attr(755,root,root) %{_bindir}/kuiviewer
-%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/parts/kuiviewerpart.so
-%attr(755,root,root) %{_libdir}/qt6/plugins/kf6/thumbcreator/quithumbnail.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/kf5/parts/kuiviewerpart.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/quithumbnail.so
 %{_desktopdir}/org.kde.kuiviewer.desktop
 %{_iconsdir}/hicolor/128x128/apps/kuiviewer.png
 %{_iconsdir}/hicolor/16x16/apps/kuiviewer.png
@@ -76,5 +77,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/48x48/apps/kuiviewer.png
 %{_iconsdir}/hicolor/64x64/apps/kuiviewer.png
 %{_iconsdir}/hicolor/scalable/apps/kuiviewer.svg
+%{_datadir}/kservices5/designerthumbnail.desktop
+%{_datadir}/kservices5/kuiviewer_part.desktop
 %{_datadir}/metainfo/org.kde.kuiviewer.metainfo.xml
 %{_datadir}/metainfo/org.kde.kuiviewerpart.metainfo.xml
